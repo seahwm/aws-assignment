@@ -3,7 +3,7 @@ from pymysql import connections
 import os
 import boto3
 from config import *
-import urllib.request
+
 
 app = Flask(__name__)
 
@@ -57,7 +57,6 @@ def AddEmp():
         s3 = boto3.resource('s3')
 
         try:
-            urllib.request.urlretrieve('ftp://username:password@server/path/to/file', 'file')
             print("Data inserted in MySQL RDS... uploading image to S3...")
             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
