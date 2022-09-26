@@ -105,6 +105,7 @@ def updateEmp():
             return render_template('err.html', msg=str(e))
 
     except Exception as e:
+        cursor.close()
         msg=str(e)
         if(e.args[0]==1062):
             msg="Duplicated Employee Id detected!"
@@ -115,6 +116,27 @@ def updateEmp():
 
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
+
+@app.route("/deleteEmp",methods=['GET','POST'])
+def delEmp():
+    id=request.form.get("id")
+    if(id="" or id=None):
+        return render_template("err.html",msg="Id not found!")
+    del_sql = "DELETE FROM employee where emp_id=%s"
+    cursor = db_conn.cursor()
+    try:
+        cursor.execute(del_sql,(emp_id))
+        db_conn.commit()
+    except Exception as e:
+        cursor.close()
+        msg=str(e)
+        if(e.args[0]==1062):
+            msg="Duplicated Employee Id detected!"
+        return render_template('err.html', msg=msg)
+    finally:
+        cursor.close()
+
+    return render_template("success.html",msg="Employee with id: "+str(id)+" have successfully deleted")
 
 @app.route("/fetchdata",methods=['GET','POST'])
 def fetchdata():
