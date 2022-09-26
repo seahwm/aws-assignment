@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+	<title>Apply Leave</title>	
+</head>
+<center>
+	<font color="black" style="font-family: avenir">
+
+		<h1 style="color: brown;font-size: 50px;">Apply Leave</h1>
+
+		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
+			<form action="/fetchdata" autocomplete="on" method="POST" style="background-image: url(formbackground.jpg);border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
+                    
+				<h2 style="color: black;font-size: 30px;">Enter Employee ID</h2>
+
+		  		<a style="font-size: 20px;">Employee ID:</a><br> 
+                <input type="number" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40"><br><br>
+				
+				<a style="font-size: 20px;">Date to apply leave:</a><br> 
+                <input type="date" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40"> <br><br>
+                
+		  		<button type="submit" formaction="http://3.134.115.108:80/" style="border-radius: 10px; background: #5cd65c; height: 45px; width: 200px; color: black; size: 10; font:oblique;font-size: medium;"><b>APPLY</b></button><br><br>
+
+                <a style="color:red">**Note : The salary will be deduct based on the leave duration.</a>
+			</form>
+        </div>
+		</body>
+	</font>
+</center>
+</html>
