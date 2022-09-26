@@ -26,11 +26,33 @@ table = 'employee'
 def home():
     return render_template('AddEmp.html')
 
+@app.route("/getemp", methods=['GET', 'POST'])
+def getEmp():
+    return render_template("GetEmp.html")
 
 @app.route("/about", methods=['POST'])
 def about():
     return render_template('www.intellipaat.com')
 
+@app.route("/fetchdata",methods=['GET','POST'])
+def fetchdata():
+    emp_id=request.form['emp_id']
+    first_name=""
+    last_name=""
+    pri_skill=""
+    location=""
+
+    retrieve_sql = "Select * from employee Where emp_id="+emp_id
+    cursor = db_conn.cursor()
+    cursor.execute(retrieve_sql)
+    for row in cursor:
+        first_name=row[1]
+        last_name=row[2]
+        pri_skill=row[3]
+        location=row[4]
+    db_conn.commit()
+    return render_template("GetEmpOutput.html",id=emp_id,
+    fname=first_name,lname=last_name,interest=pri_skill,location=location)
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
