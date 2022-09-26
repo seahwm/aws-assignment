@@ -6,7 +6,7 @@ sudo su
 yum update -y
 yum install git -y
 git clone https://github.com/seahwm/aws-assignment.git
-cd assignment
+cd aws-assignment
 pip3 install flask
 pip3 install pymysql
 pip3 install boto3
