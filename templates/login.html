@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css.css">
+	<title>Login</title>
+</head>
+<center>
+	<font style="font-family: avenir">
+
+		<h1>Login</h1>
+
+		<body>
+
+			<form style="background-image: url(formbackground.jpg);border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
+
+
+				<div>
+
+			  		<a style="font-size: 30px;">Employee ID:<br>
+					{{ id }} </a><br><br><br>
+
+			  		<a style="font-size: 30px;">First Name:<br>
+					{{ fname }} </a><br><br><br>
+
+			  		<a style="font-size: 30px;">Last Name:<br> 
+					{{ lname }} </a><br><br><br>
+					
+			  		<a style="font-size: 30px;">Primary Interest:<br> 
+					{{ interest }}</a><br><br><br>
+
+			  		<a style="font-size: 30px;">Location:<br> 
+					{{ location }} </a><br><br><br>
+
+			  		<a style="font-size: 30px;">Image URL:<br> 
+					{{ image_url }} </a><br><br><br>
+
+			  		<button type="submit" style="border-radius: 10px;font-size: 15px;background: #ffbb33; height: 45px; width: 200px; color:black; font:oblique;" formaction="http://3.134.115.108:80/getemp">RESET</button><br><br>
+					
+					<table style="width: 30%;text-align:center">
+						<tr>
+							<td><button type="submit" style="border-radius: 10px;font-size: 15px;background: #5cd65c; height: 45px; width: 200px; color:black; font:oblique;">UPDATE</button></td>
+							<td><button type="submit" style="border-radius: 10px;font-size: 15px;background: #ff471a; height: 45px; width: 200px; color:black; font:oblique;">DELETE</button></td>
+						</tr>
+					</table>
+					
+				
+			  	</div>
+
+			</form>
+
+		</body>
+
+	</font>
+</center>
+</html>
