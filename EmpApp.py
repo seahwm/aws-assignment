@@ -120,7 +120,7 @@ def updateEmp():
 @app.route("/deleteEmp",methods=['GET','POST'])
 def delEmp():
     id=request.form.get("id")
-    if(id="" or id=None):
+    if(id=="" or id==None):
         return render_template("err.html",msg="Id not found!")
     del_sql = "DELETE FROM employee where emp_id=%s"
     cursor = db_conn.cursor()
