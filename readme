@@ -2,7 +2,6 @@
 # Either add "sudo" before all commands or use "sudo su" first
 
 #!/bin/bash
-sudo su
 yum update -y
 yum install git -y
 git clone https://github.com/seahwm/aws-assignment.git
