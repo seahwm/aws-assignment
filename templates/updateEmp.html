@@ -11,7 +11,7 @@
 
 		<body  style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
 
-			<form>
+			<form action="/updateEmp" autocomplete="on" method = "POST" enctype="multipart/form-data">
 
 				<div>
 
@@ -37,7 +37,7 @@
 					<table style="width: 30%;text-align:center">
 						<tr>
 							<td><button formaction="/getemp" type="submit" style="border-radius: 10px;font-size: 15px;background: #5cd65c; height: 45px; width: 200px; color:black; font:oblique;">Cancel</button></td>
-							<td><button formaction="/updateEmp" type="submit" style="border-radius: 10px;font-size: 15px;background: #ff471a; height: 45px; width: 200px; color:black; font:oblique;">Update</button></td>
+							<td><button type="submit" style="border-radius: 10px;font-size: 15px;background: #ff471a; height: 45px; width: 200px; color:black; font:oblique;">Update</button></td>
 						</tr>
 					</table>
 					
