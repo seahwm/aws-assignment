@@ -125,7 +125,7 @@ def delEmp():
     del_sql = "DELETE FROM employee where emp_id=%s"
     cursor = db_conn.cursor()
     try:
-        cursor.execute(del_sql,(emp_id))
+        cursor.execute(del_sql,(id))
         db_conn.commit()
     except Exception as e:
         cursor.close()
