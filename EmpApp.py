@@ -144,8 +144,7 @@ def fetchdata():
     bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
     s3_location = (bucket_location['LocationConstraint'])
     emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-    object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
-        s3_location,
+    object_url = "https://{0}.s3.amazonaws.com/{1}".format(
        custombucket,
         emp_image_file_name_in_s3)
     return render_template("GetEmpOutput.html",id=emp_id,
