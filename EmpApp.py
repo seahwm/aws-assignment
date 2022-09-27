@@ -4,6 +4,7 @@ import os
 import boto3
 from config import *
 import datetime
+import calendar
 
 app = Flask(__name__)
 
@@ -78,6 +79,59 @@ def updateEmpPage():
 @app.route("/salary",methods=['GET', 'POST'])
 def salary():
     return render_template("EmpCalculateSalary.html")
+
+@app.route("/calculateSalary",methods=['GET','POST'])
+def calculateSalary():
+    id=request.form.get("id")
+    monthlySalary=request.form.get("salary")
+    month=request.form.get("month")
+    year=request.form.get("year")
+    name=""
+    salary=0
+    if(id==""):
+        return render_template("err.html"
+        ,msg="Please enter id")
+
+    if(month==""):
+        return render_template("err.html"
+        ,msg="Please enter month")
+    
+    if(year==""):
+        return render_template("err.html"
+        ,msg="Please enter year")
+
+    if(salary==""):
+        return render_template("err.html"
+        ,msg="Please enter salary")
+
+    retrieve_sql = "Select * from employee Where emp_id="+id
+    cursor = db_conn.cursor()
+    cursor.execute(retrieve_sql)
+    row_count = cursor.rowcount
+    if(row_count==0):
+        return render_template("err.html",msg="Employee Not Found!")
+    else:
+        for row in cursor:
+            name=row[1]+" "+row[2]
+    retrieve_sql = "Select * from employee.leave Where emp_id=%s and month=%s and year=%s order by day"
+    cursor.execute(retrieve_sql,(id,month,year))
+    num=cursor.rowcount
+    dateList=cursor
+    db_conn.commit()
+    
+    tmp=datetime.datetime(int(year),int(month),1)
+    m=tmp.strftime("%b")
+    date=m+"/"+year
+
+    max=calendar.monthrange(int(year), int(month))[1]
+    salary=int(monthlySalary)*(int(max)-num)/int(max)
+    deduct=int(monthlySalary)*num/int(max)
+    deduct=round(deduct,2)
+    salary=round(salary,2)
+    print(salary)
+    return render_template("EmpCalculateSalaryOutput.html",id=id,
+    salary=salary,name=name,list=dateList,num=num,
+    deduct=deduct,date=date)
 
 @app.route("/performance",methods=['GET', 'POST'])
 def performance():

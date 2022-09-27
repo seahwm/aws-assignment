@@ -16,18 +16,20 @@
 	<font style="font-family: avenir">
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
 			<br><h1>Employee Salary Calculator</h1><br><br>
-       			<form method="post" autocomplete="on" enctype="multipart/form-data" action="" style="border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
+       			<form method="post" autocomplete="on" enctype="multipart/form-data" action="/salary" style="border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
 
-			  		<a>Employee ID:<br/>
-					<input name="id" style="font-size: 30px; text-align: center;" readonly type="number" value="{{id}}"></a><br><br><br>
+			  		<a>Employee ID:<br/>{{id}}</a><br><br><br>
 
-                    <a>Employee Name:<br/>
-                    <input name="fname" style="font-size: 30px; text-align: center;" readonly type="text" value="{{fname}}"></a> &nbsp;
-					   <input name="lname" style="font-size: 30px; text-align: center;" readonly type="text" value="{{lname}}"></a><br><br><br>
+                    <a>Employee Name:<br/>{{name}}</a><br><br><br>
 
-			  		<a>You currently Salary is:<br>
-					<input name="salary" style="font-size: 30px; text-align: center;" readonly type="number" value="{{salary}}"> </a><br><br><br>
+			  		<a>You Salary for {{date}} is:<br>RM{{salary}}</a><br><br><br>
+					<a>Deducted RM{{deduct}} due to apply leave for {{num}} days in {{date}}</a>
+					<br><a>Which are:</a><br><br>
+					{% for row in list %}
+					<a style="font-size: 23px;"><b>{{row[1]}}/{{row[2]}}/{{row[3]}}</b></a><br>
+					{% endfor %}
 
+					<br><br><br>
 					<table style="width: 30%;text-align:center">
 						<tr>
 							<td><button class="button buttonadd" >Back</button></td>

@@ -16,17 +16,21 @@
 	<font style="font-family: avenir">
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
 			<br><h1>Employee Salary Calculator</h1><br><br>
-       			<form action="/" autocomplete="on" method = "POST" enctype="multipart/form-data" style="background-image: url({{ url_for('static', filename='img/formbackground.jpg')}});border-style:solid;border-radius: 20px;padding: 25px;width: fit-content;">
+       			<form action="/calculateSalary" autocomplete="on" method = "POST" enctype="multipart/form-data" style="background-image: url({{ url_for('static', filename='img/formbackground.jpg')}});border-style:solid;border-radius: 20px;padding: 25px;width: fit-content;">
 
 				<a>Employee ID:<br>
-				<input style="height:25px;font-size:14pt; color:black;" type="number" name="emp_id" autofocus size="40" placeholder=" Employee ID"></a><br><br>
-
+				<input style="height:25px;font-size:14pt; color:black;" type="number" name="id" autofocus size="40" placeholder=" Employee ID"></a><br><br>
 				<a>Daily Salary:<br>
-				<input style="height:25px;font-size:14pt;color:black;" type="number" name="salary" placeholder=" Daily Salary"></a><br><br><br>
-
+				<input style="height:25px;font-size:14pt;color:black;" type="number" name="salary" min="1" placeholder=" Daily Salary"></a><br><br>
+				<a>Month:<br>
+				<input style="height:25px;font-size:14pt; color:black;" type="number" name="month"  size="40" min="1" max="12" placeholder="Month"></a><br><br>
+				<a>Year:<br>
+				<input style="height:25px;font-size:14pt; color:black;" type="number" name="year"  size="40" placeholder="Year" min="1"></a><br><br>
+					
+				<br><br><br>
 				<table style="width: 100%;text-align:center">
 					<tr>
-						<td><button class="button buttonadd" type="submit" formaction="/">Calculate Now</button></td>
+						<td><button class="button buttonadd" type="submit" >Calculate Now</button></td>
 					</tr>
 				</table><br>
 			</form>
