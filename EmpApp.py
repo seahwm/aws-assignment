@@ -30,8 +30,16 @@ def home():
 def getEmp():
     return render_template("GetEmp.html")
 
-@app.route("/leave", methods=['GET', 'POST'])
+@app.route("/applyLeave",methods=['GET','POST'])
 def applyLeave():
+    id=request.form.get("id")
+    date=request.form.get("date")
+    print(type(date))
+    
+    return str(id)+str(date)
+
+@app.route("/leave", methods=['GET', 'POST'])
+def leave():
     return render_template("EmpApplyLeave.html")
 
 @app.route("/updateEmpPage",methods=['GET', 'POST'])
@@ -131,6 +139,10 @@ def delEmp():
     try:
         cursor.execute(del_sql,(id))
         db_conn.commit()
+        emp_image_file_name_in_s3 = "emp-id-" + str(id) + "_image_file"
+        
+        s3 = boto3.resource('s3')
+        s3.Object(custombucket, emp_image_file_name_in_s3).delete()
     except Exception as e:
         cursor.close()
         msg=str(e)
@@ -165,10 +177,7 @@ def fetchdata():
         pri_skill=row[3]
         location=row[4]
     db_conn.commit()
-    object_url=""
-    s3 = boto3.resource('s3')
-    bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-    s3_location = (bucket_location['LocationConstraint'])
+
     emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
     object_url = "https://{0}.s3.amazonaws.com/{1}".format(
        custombucket,

@@ -15,17 +15,17 @@
 	<font color="black" style="font-family: avenir">
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
 			<h1 style="color: brown;font-size: 50px;">Apply Leave</h1>
-			<form action="/fetchdata" autocomplete="on" method="POST" style="background-image: url(formbackground.jpg);border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
+			<form action="/applyLeave" autocomplete="on" method="POST" style="background-image: url(formbackground.jpg);border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
                     
 				<h2>Enter Employee ID</h2><br><br>
 
 		  		<a>Employee ID:</a><br>
-                <input type="number" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40"><br><br>
+                <input name="id" type="number" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40"><br><br>
 				
 				<a>Date to apply leave:</a><br>
-                <input type="date" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40"> <br><br>
+                <input name="date" type="date" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40"> <br><br>
                 
-		  		<button class="button buttonadd" type="submit" formaction="http://3.134.115.108:80/"><b>APPLY</b></button><br><br>
+		  		<button class="button buttonadd" type="submit"><b>APPLY</b></button><br><br>
 
                 <a style="color:red;font-size:15px">**Note : The salary will be deduct based on the leave duration.</a>
 			</form><br>
