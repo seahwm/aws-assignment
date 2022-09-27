@@ -3,7 +3,7 @@ from pymysql import connections
 import os
 import boto3
 from config import *
-
+import datetime
 
 app = Flask(__name__)
 
@@ -32,11 +32,34 @@ def getEmp():
 
 @app.route("/applyLeave",methods=['GET','POST'])
 def applyLeave():
-    id=request.form.get("id")
+    id=(request.form.get("id"))
     date=request.form.get("date")
-    print(type(date))
+    if(id==""):
+        return render_template("err.html",msg="Please enter employee id")
+    if(date==""):
+        return render_template("err.html",msg="Please enter the date")
     
-    return str(id)+str(date)
+    dateList=date.split("-")
+    year=int(dateList[0])
+    month=int(dateList[1])
+    day=int(dateList[2])
+    id=int(id)
+
+    
+    retrieve_sql = "Select * from employee.leave Where emp_id=%s and day=%s and month=%s and year=%s"
+    cursor = db_conn.cursor()
+    cursor.execute(retrieve_sql,(id,day,month,year))
+    row_count = cursor.rowcount
+    if(row_count!=0):
+        return render_template("err.html",msg="You already apply leave for that day!!")
+    else:
+        insert_sql="INSERT INTO employee.leave VALUES (%s, %s, %s, %s)"
+        cursor.execute(insert_sql,(id,day,month,year))
+
+    db_conn.commit()
+
+    return render_template("success.html",msg="Employee id:"
+    +id+" have apply leave for "+str(day)+"/"+str(month)+"/"+str(year)+" successful!")
 
 @app.route("/leave", methods=['GET', 'POST'])
 def leave():
