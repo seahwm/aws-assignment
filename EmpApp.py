@@ -135,7 +135,39 @@ def calculateSalary():
 
 @app.route("/performance",methods=['GET', 'POST'])
 def performance():
-    return "Performance Havent Done"
+    return render_template('performance.html')
+
+def sortEmp(elem):
+    return elem[2]
+
+@app.route("/checkPerformance",methods=['GET','POST'])
+def checkPerformance():
+    year=request.form.get("year")
+    if(year==""):
+        return render_template("err.html"
+        ,msg="Please enter year")
+    retrieve_sql = "Select * from employee"
+    cursor = db_conn.cursor()
+    cursor.execute(retrieve_sql)
+    list=cursor
+    empList=[]
+    tmp=[]
+    for row in list:
+        emp=[]
+        emp.append(row[0])
+        name=row[1]+row[2]
+        emp.append(name)
+        tmp.append(emp)
+    
+    for emp in tmp:
+        retrieve_sql = "Select * from employee.leave Where emp_id=%s and year=%s"
+        cursor.execute(retrieve_sql,(emp[0],year))
+        num=cursor.rowcount
+        emp.append(num)
+        empList.append(emp)
+    db_conn.commit()
+    empList.sort(key=sortEmp)
+    return render_template('performanceOutput.html',year=year,empList=empList)
 
 @app.route("/attendance",methods=['GET', 'POST'])
 def attendance():

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+	<title>Success Message</title>
+
+	<!-- nav bar -->
+	<ul>
+		<li><a href="/">Add Employee</a></li>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
+</head>
+<center>
+	<font color="black" size="5" style="font-family: avenir">
+		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
+		<br>
+        <h1 style="color: black;">Employee Yearly Performance</h1><br><br>
+        <form method="post" autocomplete="on" enctype="multipart/form-data" action="/checkPerformance" style="border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
+            <a>Year:<br>
+            <input style="height:25px;font-size:14pt; color:black;" type="number" name="year"  size="40" placeholder="Year" min="1"></a><br><br>
+                
+            <br><br><br>
+            <table style="width: 100%;text-align:center">
+                <tr>
+                    <td><button class="button buttonadd" type="submit" >Check</button></td>
+                </tr>
+            </table>
+            <br>
+		</form>
+            <br>
+		</body>
+	</font>
+</center>
+</html>

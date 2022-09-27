@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+	<title>Success Message</title>
+
+	<!-- nav bar -->
+	<ul>
+		<li><a href="/">Add Employee</a></li>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
+</head>
+<center>
+	<font color="black" size="5" style="font-family: avenir">
+		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
+		<br>
+        <h1 style="color: black;">Employee Yearly Performance</h1><br><br>
+        <form method="post" autocomplete="on" enctype="multipart/form-data" action="/checkPerformance" style="border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
+            <div class="tb">
+			<table style="text-align: center;">
+				<tr>
+					<td style="width: 20%;">
+						<b>ID</b>
+					</td>
+					<td style="width: 20%;">
+						<b>Name</b>
+					</td>
+					<td style="width: 20%;">
+						<b>Total Leave Apply in Year {{year}}</b>
+					</td>
+				</tr>
+				{% for emp in empList %}
+				<tr>
+					<td>
+						{{emp[0]}}<br>
+					</td>
+					<td>
+						{{emp[1]}}
+					</td>
+					<td>
+						{{emp[2]}}
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+            <br><br><br>
+			<div>
+            <table style="width: 100%;text-align:center">
+                <tr>
+                    <td><button class="button buttonadd" type="submit" >Back</button></td>
+                </tr>
+            </table>
+		</div>
+            <br>
+		</form>
+            <br>
+		</body>
+	</font>
+</center>
+</html>

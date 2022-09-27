@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+.tb table,.tb th,.tb td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}
 
 ul {
   list-style-type: none;
