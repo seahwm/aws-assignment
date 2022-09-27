@@ -3,23 +3,27 @@
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
 	<title>Get Employee Information</title>
+
+	<!-- nav bar -->
+	<ul>
+		<li><a href="/">Add Employee</a></li>
+		<li><a href="/getemp">Search Employee</a></li>
+		<li><a href="/leave">Apply Leave</a></li>
+	</ul>
 </head>
 <center>
 	<font color="black" size="5" style="font-family: avenir">
-
-		<h1>Employee Information</h1>
-
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
-
+			<h1>Employee Information</h1>
 			<form action="/fetchdata" autocomplete="on" method="POST">
 
-				<h2 style="color: black">Enter Employee ID</h2>
+				<h2>Enter Employee ID</h2><br><br>
 
 		  		Employee ID:<br> <input style="height:25px;font-size:14pt;" type="number" name="emp_id" autofocus size="40"><br><br>
 
 
-		  		<button type="submit" style="border-radius: 10px;font-size: 15px;background: #5cd65c; height: 45px; width: 200px; color: black; size: 5; font:oblique;">FETCH INFO</button><br><br>
-			</form>
+		  		<button class="button buttonadd" type="submit">FETCH INFO</button><br><br>
+			</form><br>
 
 		</body>
 	</font>

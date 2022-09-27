@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
 	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+	<title>Add Emp Output</title>
+
+	<!-- nav bar -->
+	<ul>
+		<li><a href="/">Add Employee</a></li>
+		<li><a href="/getemp">Search Employee</a></li>
+		<li><a href="/leave">Apply Leave</a></li>
+	</ul>
 <center>
 	<font style="font-family: avenir">
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})"><br>
 			<div style="box-shadow: 15px 10px 10px #00b300;background-color: #00cc00;padding: 10px;border-radius: 15px;padding: 20px;width: fit-content;">
-			<h1 style="color:white;font-size: 50px;">SAVE SUCCESSFUL</h1>
+			<h1>SAVE SUCCESSFUL</h1>
 			</div>
+			<br><br>
 			<h2>Following Employee has been added to the database</h2><br>
 			<h2>{{ name }}</h2><br>
-			<title>Add Emp Output</title>
+
 				<form action="/" autocomplete="on" method = "GET">
-					<button type="submit" style="border-radius: 10px;font-size: 20px;background: #ffbb33; height: 45px; width: 200px; color:black; font:oblique;">BACK</button>
-				</form>
+					<button class = "buttonget" type="submit" style="font-size: 20px">BACK</button>
+				</form><br>
 		</body>
 	</font>
 </center>

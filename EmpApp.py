@@ -30,6 +30,10 @@ def home():
 def getEmp():
     return render_template("GetEmp.html")
 
+@app.route("/leave", methods=['GET', 'POST'])
+def applyLeave():
+    return render_template("EmpApplyLeave.html")
+
 @app.route("/updateEmpPage",methods=['GET', 'POST'])
 def updateEmpPage():
     id=request.form.get("id")

@@ -3,48 +3,46 @@
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
 	<title>Employee Information</title>
+	<ul>
+		<li><a href="/">Add Employee</a></li>
+		<li><a href="/getemp">Search Employee</a></li>
+		<li><a href="/leave">Apply Leave</a></li>
+	</ul>
 </head>
 <center>
 	<font style="font-family: avenir">
-
-		<h1>Employee Information</h1>
-
 		<body  style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
-
+			<h1>Employee Information</h1><br><br>
 			<form action="/updateEmp" autocomplete="on" method = "POST" enctype="multipart/form-data">
-
 				<div>
 
-					<a>Employee ID:</a><br> 
-					<input style="height:25px;font-size:14pt; color:black;" type="number" readonly value="{{id}}" name="emp_id" autofocus size="40"><br><br>
+					<a>Employee ID:<br>
+					<input style="height:25px;font-size:14pt; color:black;" type="number" readonly value="{{id}}" name="emp_id" autofocus size="40"></a><br><br>
 	
-					<a>First Name:</a><br> 
-					<input style="height:25px;font-size:14pt;color:black;" type="text" value="{{fname}}" name="first_name" ><br><br>
+					<a>First Name:<br>
+					<input style="height:25px;font-size:14pt;color:black;" type="text" value="{{fname}}" name="first_name" ></a><br><br>
 	
-					<a>Last Name:</a><br> 
-					<input style="height:25px;font-size:14pt;color:black;" type="text" value="{{lname}}" name="last_name"><br><br>
+					<a>Last Name:<br>
+					<input style="height:25px;font-size:14pt;color:black;" type="text" value="{{lname}}" name="last_name"></a><br><br>
 	
-					<a>Primary Skills:</a><br> 
-					<input style="height:25px;font-size:14pt;color:black;" type="text" value="{{skill}}" name="pri_skill"><br><br>
+					<a>Primary Skills:<br>
+					<input style="height:25px;font-size:14pt;color:black;" type="text" value="{{skill}}" name="pri_skill"></a><br><br>
 	
-					<a>Location:</a><br> 
-					<input style="height:25px;font-size:14pt;color:black;" type="text" value="{{location}}" name="location"><br><br>
+					<a>Location:<br>
+					<input style="height:25px;font-size:14pt;color:black;" type="text" value="{{location}}" name="location"></a><br><br>
 	
-					<a>Image:</a> 
-					<input type=file name="emp_image_file" style="height:25px;font-size:12pt;color:grey;"> <br><br>
+					<a>Image:
+					<input type=file name="emp_image_file" style="height:25px;font-size:12pt;color:grey;"></a><br><br>
 	
 					
 					<table style="width: 30%;text-align:center">
 						<tr>
-							<td><button formaction="/getemp" type="submit" style="border-radius: 10px;font-size: 15px;background: #5cd65c; height: 45px; width: 200px; color:black; font:oblique;">Cancel</button></td>
-							<td><button type="submit" style="border-radius: 10px;font-size: 15px;background: #ff471a; height: 45px; width: 200px; color:black; font:oblique;">Update</button></td>
+							<td><button class="button buttondelete" formaction="/getemp" type="submit">Cancel</button></td>
+							<td><button class="button buttonadd" type="submit" >Update</button></td>
 						</tr>
 					</table>
-					
-				
 			  	</div>
-
-			</form>
+			</form><br>
 
 		</body>
 
