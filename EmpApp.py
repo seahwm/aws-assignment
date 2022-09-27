@@ -60,7 +60,7 @@ def applyLeave():
     db_conn.commit()
 
     return render_template("success.html",msg="Employee id:"
-    +id+" have apply leave for "+str(day)+"/"+str(month)+"/"+str(year)+" successful!")
+    +str(id)+" have apply leave for "+str(day)+"/"+str(month)+"/"+str(year)+" successful!")
 
 @app.route("/leave", methods=['GET', 'POST'])
 def leave():
