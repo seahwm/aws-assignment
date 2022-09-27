@@ -7,22 +7,25 @@
 	<!-- nav bar -->
 	<ul>
 		<li><a href="/">Add Employee</a></li>
-		<li><a href="/getemp">Search Employee</a></li>
-		<li><a href="/leave">Apply Leave</a></li>
-	</ul>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
 </head>
 <center>
 	<font color="black" size="5" style="font-family: avenir">
-		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
-			<h1>Employee Information</h1>
+		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})"><br>
+			<br><h1>Employee Information</h1><br><br>
 			<form action="/fetchdata" autocomplete="on" method="POST">
 
 				<h2>Enter Employee ID</h2><br><br>
 
-		  		Employee ID:<br> <input style="height:25px;font-size:14pt;" type="number" name="emp_id" autofocus size="40"><br><br>
+				<a>Employee ID:<br> <input style="height:25px;font-size:14pt;" type="number" name="emp_id" autofocus size="40" placeholder=" Employee ID"></a><br><br>
 
 
-		  		<button class="button buttonadd" type="submit">FETCH INFO</button><br><br>
+		  		<button class="button buttonadd" type="submit">Fetch Info</button><br><br>
 			</form><br>
 
 		</body>

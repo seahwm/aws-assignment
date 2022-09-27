@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+	<title>Employee Attendance Checking</title>
+
+	<!-- nav bar -->
+	<ul>
+		<li><a href="/">Add Employee</a></li>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
+</head>
+<center>
+	<font color="black" style="font-family: avenir">
+		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
+			<br><h1>Employee Leave Checking</h1><br><br>
+			<form action="/checkLeave" autocomplete="on" method = "POST" enctype="multipart/form-data" style="background-image: url({{ url_for('static', filename='img/formbackground.jpg')}});border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
+
+				<a>Employee ID:<br><br>
+				<input style="height:25px;font-size:14pt; color:black;" type="number" name="emp_id"  size="40" placeholder=" Employee ID"></a><br><br>
+				<a>Month:<br><br>
+				<input style="height:25px;font-size:14pt; color:black;" type="number" name="month"  size="40" min="1" max="12" placeholder="Month"></a><br><br>
+				<a>Year:<br><br>
+				<input style="height:25px;font-size:14pt; color:black;" type="number" name="year"  size="40" placeholder="Year" min="1"></a><br><br>
+
+				<table style="width: 100%;text-align:center">
+					<tr>
+						<td><button class="button buttonadd" type="submit">Check Now</button>&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table><br>
+			</form>
+		</body>
+
+	</font>
+</center>
+</html>

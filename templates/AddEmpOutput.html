@@ -2,14 +2,17 @@
 <html>
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
-	<title>Add Emp Output</title>
+	<title>Add Employee Output</title>
 
 	<!-- nav bar -->
 	<ul>
 		<li><a href="/">Add Employee</a></li>
-		<li><a href="/getemp">Search Employee</a></li>
-		<li><a href="/leave">Apply Leave</a></li>
-	</ul>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
 <center>
 	<font style="font-family: avenir">
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})"><br>
@@ -21,7 +24,7 @@
 			<h2>{{ name }}</h2><br>
 
 				<form action="/" autocomplete="on" method = "GET">
-					<button class = "buttonget" type="submit" style="font-size: 20px">BACK</button>
+					<button class = "buttonget" type="submit" style="font-size: 20px">Back</button>
 				</form><br>
 		</body>
 	</font>

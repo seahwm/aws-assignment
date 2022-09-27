@@ -7,9 +7,12 @@
 	<!-- nav bar -->
 	<ul>
 		<li><a href="/">Add Employee</a></li>
-		<li><a href="/getemp">Search Employee</a></li>
-		<li><a href="/leave">Apply Leave</a></li>
-	</ul>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
 </head>
 <center>
 	<font color="black" style="font-family: avenir">
@@ -18,27 +21,27 @@
 			<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data" style="background-image: url({{ url_for('static', filename='img/formbackground.jpg')}});border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
 
 				<a>Employee ID:<br>
-				<input style="height:25px;font-size:14pt; color:black;" type="number" name="emp_id" autofocus size="40"></a><br><br>
+				<input style="height:25px;font-size:14pt; color:black;" type="number" name="emp_id"  size="40" placeholder=" Employee ID"></a><br><br>
 
 				<a>First Name:<br>
-				<input style="height:25px;font-size:14pt;color:black;" type="text" name="first_name" ></a><br><br>
+				<input style="height:25px;font-size:14pt;color:black;" type="text" name="first_name" placeholder=" First Name"></a><br><br>
 
 				<a>Last Name:<br>
-				<input style="height:25px;font-size:14pt;color:black;" type="text" name="last_name"></a><br><br>
+				<input style="height:25px;font-size:14pt;color:black;" type="text" name="last_name" placeholder=" Last Name"></a><br><br>
 
 				<a>Primary Skills:<br>
-				<input style="height:25px;font-size:14pt;color:black;" type="text" name="pri_skill"></a><br><br>
+				<input style="height:25px;font-size:14pt;color:black;" type="text" name="pri_skill" placeholder=" Primary Skills"></a><br><br>
 
 				<a>Location:<br>
-				<input style="height:25px;font-size:14pt;color:black;" type="text" name="location"></a><br><br>
+				<input style="height:25px;font-size:14pt;color:black;" type="text" name="location" placeholder=" Location"></a><br><br>
 
 				<a>Image:
 				<input type=file name="emp_image_file" style="height:25px;font-size:12pt;color:grey;"></a><br><br>
 
 				<table style="width: 100%;text-align:center">
 					<tr>
-						<td><button class="button buttonget" type="submit" formaction="/getemp">GET EMPLOYEE INFORMATION</button>&nbsp;&nbsp;&nbsp;</td>
-						<td><button class="button buttonadd" type="submit" formaction="/addemp">ADD EMPLOYEE</button></td>
+						<td><button class="button buttonget" type="submit" formaction="/getemp">Get Employee Information</button>&nbsp;&nbsp;&nbsp;</td>
+						<td><button class="button buttonadd" type="submit" formaction="/addemp">Add Employee</button></td>
 					</tr>
 				</table><br>
 			</form>

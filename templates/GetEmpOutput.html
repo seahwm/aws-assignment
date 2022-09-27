@@ -2,19 +2,22 @@
 <html>
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
-	<title>Employee Information</title>
+	<title>Get Employee Information Output</title>
 
 	<!-- nav bar -->
 	<ul>
 		<li><a href="/">Add Employee</a></li>
-		<li><a href="/getemp">Search Employee</a></li>
-		<li><a href="/leave">Apply Leave</a></li>
-	</ul>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
 </head>
 <center>
 	<font style="font-family: avenir">
 		<body  style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
-		<h1>Employee Information</h1><br><br>
+		<br><h1>Employee Information</h1><br><br>
 			<form method="post" autocomplete="on" enctype="multipart/form-data" action="/updateEmpPage">
 
 			  		<a style="font-size: 30px;">Employee ID:<br/>
@@ -37,8 +40,8 @@
 					
 					<table style="width: 30%;text-align:center">
 						<tr>
-							<td><button class="button buttonadd" type="submit" style="border-radius: 10px;font-size: 15px;background: #5cd65c; height: 45px; width: 200px; color:black; font:oblique;">UPDATE</button></td>
-							<td><button class="button buttondelete" formaction="/deleteEmp" type="submit" style="border-radius: 10px;font-size: 15px;background: #ff471a; height: 45px; width: 200px; color:black; font:oblique;">DELETE</button></td>
+							<td><button class="button buttonadd" type="submit">Update</button></td>
+							<td><button class="button buttondelete" formaction="/deleteEmp" type="submit">Delete</button></td>
 						</tr>
 					</table>
 			</form><br>

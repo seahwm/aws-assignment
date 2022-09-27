@@ -75,6 +75,56 @@ def updateEmpPage():
     return render_template("updateEmp.html",id=id,fname=fname,
     lname=lname,skill=skill,location=location)
 
+@app.route("/salary",methods=['GET', 'POST'])
+def salary():
+    return render_template("EmpCalculateSalary.html")
+
+@app.route("/performance",methods=['GET', 'POST'])
+def performance():
+    return "Performance Havent Done"
+
+@app.route("/attendance",methods=['GET', 'POST'])
+def attendance():
+    return render_template("CheckLeave.html")
+
+@app.route("/checkLeave",methods=['GET','POST'])
+def cehckLeave():
+    id=request.form.get("emp_id")
+    year=request.form.get("year")
+    month=request.form.get("month")
+    num=0
+    dateList=[]
+    if(id==""):
+        return render_template("err.html"
+        ,msg="Please enter id")
+
+    if(month==""):
+        return render_template("err.html"
+        ,msg="Please enter month")
+    
+    if(year==""):
+        return render_template("err.html"
+        ,msg="Please enter year")
+
+    retrieve_sql = "Select * from employee Where emp_id="+id
+    cursor = db_conn.cursor()
+    cursor.execute(retrieve_sql)
+    row_count = cursor.rowcount
+    if(row_count==0):
+        return render_template("err.html",msg="Employee Not Found!")
+    else:
+        retrieve_sql=retrieve_sql = "Select * from employee.leave Where emp_id=%s and month=%s and year=%s order by day"
+        cursor.execute(retrieve_sql,(id,month,year))
+        num=cursor.rowcount
+        dateList=cursor
+        print(dateList)
+    db_conn.commit()
+    tmp=datetime.datetime(int(year),int(month),1)
+    m=tmp.strftime("%b")
+    date=m+"/"+year
+    return render_template("CheckLeaveOutput.html",id=id,
+    year=year,date=date,num=num,list=dateList)
+
 @app.route("/updateEmp",methods=['GET', 'POST'])
 def updateEmp():
     emp_id = request.form['emp_id']

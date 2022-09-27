@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+	<title>Employee Salary Calculator</title>
+	<ul>
+		<li><a href="/">Add Employee</a></li>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
+</head>
+<center>
+	<font style="font-family: avenir">
+		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
+			<br><h1>Employee Salary Calculator</h1><br><br>
+       			<form action="/" autocomplete="on" method = "POST" enctype="multipart/form-data" style="background-image: url({{ url_for('static', filename='img/formbackground.jpg')}});border-style:solid;border-radius: 20px;padding: 25px;width: fit-content;">
+
+				<a>Employee ID:<br>
+				<input style="height:25px;font-size:14pt; color:black;" type="number" name="emp_id" autofocus size="40" placeholder=" Employee ID"></a><br><br>
+
+				<a>Daily Salary:<br>
+				<input style="height:25px;font-size:14pt;color:black;" type="number" name="salary" placeholder=" Daily Salary"></a><br><br><br>
+
+				<table style="width: 100%;text-align:center">
+					<tr>
+						<td><button class="button buttonadd" type="submit" formaction="/">Calculate Now</button></td>
+					</tr>
+				</table><br>
+			</form>
+	</font>
+</center>
+</html>

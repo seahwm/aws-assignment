@@ -7,25 +7,28 @@
 	<!-- nav bar -->
 	<ul>
 		<li><a href="/">Add Employee</a></li>
-		<li><a href="/getemp">Search Employee</a></li>
-		<li><a href="/leave">Apply Leave</a></li>
-	</ul>
+	   <li><a href="/getemp">Search Employee</a></li>
+	   <li><a href="/leave">Apply Leave</a></li>
+	   <li><a href="/salary">Employee Salary Calculator</a></li>
+	   <li><a href="/performance">Employee Performance Checking</a></li>
+	   <li><a href="/attendance">Employee Leave Checking</a></li>
+   </ul>
 </head>
 <center>
 	<font color="black" style="font-family: avenir">
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
-			<h1 style="color: brown;font-size: 50px;">Apply Leave</h1>
+			<br><h1>Apply Leave</h1><br><br>
 			<form action="/applyLeave" autocomplete="on" method="POST" style="background-image: url(formbackground.jpg);border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
                     
 				<h2>Enter Employee ID</h2><br><br>
 
 		  		<a>Employee ID:</a><br>
-                <input name="id" type="number" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40"><br><br>
+                <input name="id" type="number" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40" placeholder=" Employee ID"><br><br>
 				
 				<a>Date to apply leave:</a><br>
                 <input name="date" type="date" style="height:25px;font-size:14pt;font-size: 20px"  name="emp_id" autofocus size="40"> <br><br>
                 
-		  		<button class="button buttonadd" type="submit"><b>APPLY</b></button><br><br>
+		  		<button class="button buttonadd" type="submit">Apply</button><br><br>
 
                 <a style="color:red;font-size:15px">**Note : The salary will be deduct based on the leave duration.</a>
 			</form><br>
