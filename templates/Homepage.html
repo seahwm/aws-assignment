@@ -1,10 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Homepage</title>
+
+    <div class="navbar">
+        <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+           
+           <div class="dropdown">
+               <button class="dropbtn">Employee Management
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                    <a href="/addempPage">Add Employee</a>
+                    <a href="/getemp">Search Employee</a>
+                   </div>
+           </div>
+           <div class="dropdown">
+               <button class="dropbtn">Employee Checking
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                       <a href="/salary">Employee Salary Calculator</a>
+                       <a href="/performance">Employee Performance Checking</a>
+                   </div>
+           </div>
+           <div class="dropdown">
+               <button class="dropbtn">Leave Management
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                       <a href="/leave">Apply Leave</a>
+                       <a href="/attendance">Employee Leave Checking</a>
+                   </div>
+           </div>
+           <a href="/aboutus">About Us</a>
+</div>
 </head>
-<body>
+<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
+    <br><br><h1 style="color:black;text-align:center">Welcome to HR Management System</h1><br><br>
+    <div style="left:25%;position: relative;">
+    <div>
+        <div style="width:250px;height:250px;float:left;">
+        <!-- Add New Employee -->
+                <div class="container">
+                    <a href="/addempPage">
+                <img src="/static/img/addemp.png" alt="Add Employeer" class="homeimg">
+                <div class="overlay">Add Employee</div>
+                    </a>
+            </div>
+        </div>
+
+        <div style="width:250px;height:250px;float: left;">
+            <div class="container">
+                <a href="/getemp">
+                <img src="/static/img/search.jpg" alt="Search Employee" class="homeimg">
+                <div class="overlay">Search Employee</div>
+                </a>
+            </div>
+        </div>
+
+        <div  style="width:250px;height:250px;float: left;">
+            <div class="container">
+                <a href="/salary">
+                <img src="/static/img/calculator.png" alt="Employee Salary Calculator" class="homeimg">
+                <div class="overlay">Employee Salary Calculator</div>
+                </a>
+            </div>
+        </div>
+    </div><br style="clear: both;">
+    <br><br>
+    <div>
+        <div style="width:250px;height:250px;float: left;">
+            <div class="container">
+                <a href="/performance">
+                <img src="/static/img/performance.png" alt="Employee Performance Checking" class="homeimg">
+                <div class="overlay">Employee Performance Checking</div>
+                </a>
+            </div>
+        </div>
+
+        <div style="width:250px;height:250px;float: left;">
+            <div class="container">
+                <a href="/attendance">
+                <img src="/static/img/leavecheck.png" alt="Employee Leave Checking" class="homeimg">
+                <div class="overlay">Employee Leave Checking</div>
+                </a>
+            </div>
+        </div>
+
+            <div style="width:250px;height:250px;float: left;">
+            <div class="container">
+                <a href="/leave">
+                <img src="/static/img/leave.jpg" alt="Apply Leave" class="homeimg">
+                <div class="overlay">Apply Leave</div>
+                </a>
+            </div>
+    </div>
+</div>
 
 </body>
 </html>

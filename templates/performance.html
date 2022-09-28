@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Success Message</title>
 
-	<!-- nav bar -->
-	<ul>
-		<li><a href="/">Add Employee</a></li>
-	   <li><a href="/getemp">Search Employee</a></li>
-	   <li><a href="/leave">Apply Leave</a></li>
-	   <li><a href="/salary">Employee Salary Calculator</a></li>
-	   <li><a href="/performance">Employee Performance Checking</a></li>
-	   <li><a href="/attendance">Employee Leave Checking</a></li>
-   </ul>
+    <div class="navbar">
+        <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+           
+           <div class="dropdown">
+               <button class="dropbtn">Employee Management
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                    <a href="/addempPage">Add Employee</a>
+                    <a href="/getemp">Search Employee</a>
+                   </div>
+           </div>
+           <div class="dropdown">
+               <button class="dropbtn">Employee Checking
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                       <a href="/salary">Employee Salary Calculator</a>
+                       <a href="/performance">Employee Performance Checking</a>
+                   </div>
+           </div>
+           <div class="dropdown">
+               <button class="dropbtn">Leave Management
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                       <a href="/leave">Apply Leave</a>
+                       <a href="/attendance">Employee Leave Checking</a>
+                   </div>
+           </div>
+           <a href="/aboutus">About Us</a>
+    </div>
 </head>
 <center>
 	<font color="black" size="5" style="font-family: avenir">
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
 		<br>
         <h1 style="color: black;">Employee Yearly Performance</h1><br><br>
-        <form method="post" autocomplete="on" enctype="multipart/form-data" action="/checkPerformance" style="border-style:solid;border-radius: 20px;padding: 15px;width: fit-content;">
+        <form method="post" autocomplete="on" enctype="multipart/form-data" action="/checkPerformance" style="background-image: url({{ url_for('static', filename='img/formbackground.jpg')}});border-style:solid;border-radius: 20px;padding: 25px;width: fit-content;"">
             <a>Year:<br>
             <input style="height:25px;font-size:14pt; color:black;" type="number" name="year"  size="40" placeholder="Year" min="1"></a><br><br>
                 

@@ -9,29 +9,65 @@
   padding: 20px;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.navbar {
   overflow: hidden;
   background-color: #333;
 }
 
-li {
+.navbar a {
   float: left;
-}
-
-li a {
-  display: block;
+  font-size: 16px;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-/* when color move on it the background color will change to #664400*/
-li a:hover {
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  width:auto;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
   background-color: #111;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 214px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 body{
@@ -140,7 +176,8 @@ html {
 }
 
 .container {
-  padding: 0 16px;
+  padding: 10px 16px;
+  height: 200px;
 }
 
 .container::after, .row::after {
@@ -151,6 +188,50 @@ html {
 
 img {
   width: contain;
-  height: contain;
+  height: 500px;
+}
 
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  position: relative;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 17px;
+  padding: 12px;
+  text-align: center;
+  height:70px;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.homeimg {
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+
+.homecontainer {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+  align:center;
+}
+
+
+.center {
+  margin: 0;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

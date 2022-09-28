@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Update Employee Information</title>
-	<ul>
-		<li><a href="/">Add Employee</a></li>
-	   <li><a href="/getemp">Search Employee</a></li>
-	   <li><a href="/leave">Apply Leave</a></li>
-	   <li><a href="/salary">Employee Salary Calculator</a></li>
-	   <li><a href="/performance">Employee Performance Checking</a></li>
-	   <li><a href="/attendance">Employee Leave Checking</a></li>
-   </ul>
+    <div class="navbar">
+        <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+           
+           <div class="dropdown">
+               <button class="dropbtn">Employee Management
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                    <a href="/addempPage">Add Employee</a>
+                    <a href="/getemp">Search Employee</a>
+                   </div>
+           </div>
+           <div class="dropdown">
+               <button class="dropbtn">Employee Checking
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                       <a href="/salary">Employee Salary Calculator</a>
+                       <a href="/performance">Employee Performance Checking</a>
+                   </div>
+           </div>
+           <div class="dropdown">
+               <button class="dropbtn">Leave Management
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                       <a href="/leave">Apply Leave</a>
+                       <a href="/attendance">Employee Leave Checking</a>
+                   </div>
+           </div>
+           <a href="/aboutus">About Us</a>
+    </div>
 </head>
 <center>
 	<font style="font-family: avenir">

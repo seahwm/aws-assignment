@@ -3,64 +3,84 @@
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>About Us</title>
 
-	<!-- nav bar -->
-	<ul>
-		<li><a href="/">Add Employee</a></li>
-	   <li><a href="/getemp">Search Employee</a></li>
-	   <li><a href="/leave">Apply Leave</a></li>
-	   <li><a href="/salary">Employee Salary Calculator</a></li>
-	   <li><a href="/performance">Employee Performance Checking</a></li>
-	   <li><a href="/attendance">Employee Leave Checking</a></li>
-   </ul>
+    <div class="navbar">
+        <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+           
+           <div class="dropdown">
+               <button class="dropbtn">Employee Management
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                    <a href="/addempPage">Add Employee</a>
+                    <a href="/getemp">Search Employee</a>
+                   </div>
+           </div>
+           <div class="dropdown">
+               <button class="dropbtn">Employee Checking
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                       <a href="/salary">Employee Salary Calculator</a>
+                       <a href="/performance">Employee Performance Checking</a>
+                   </div>
+           </div>
+           <div class="dropdown">
+               <button class="dropbtn">Leave Management
+                   <i class="fa fa-caret-down"></i>
+               </button>
+                   <div class="dropdown-content">
+                       <a href="/leave">Apply Leave</a>
+                       <a href="/attendance">Employee Leave Checking</a>
+                   </div>
+           </div>
+           <a href="/aboutus">About Us</a>
+    </div>
+</head>
 
 <center>
 	<font style="font-family: avenir">
 		<body style="background-image:url({{ url_for('static', filename='img/background.jpg')}})">
-	        <div class="about-section">
-                <h1>About Us Page</h1><br>
-                <p>Some text about who we are and what we do.</p>
-                <p>Resize the browser window to see that this page is responsive by the way.</p>
+           	        <div class="about-section">
+                <h1 style="color:white">About Us</h1><br>
             </div>
 
-            <br><br><h2 style="text-align:center">Our Team</h2>
+            <br><br><h2 style="text-align:center; font-size:50px">Our Team</h2><br>
             <div class="row">
                 <div class="column">
                     <div class="card">
-                        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+                        <img src="/static/img/ky.png" alt="ky" style="width:100%">
                             <div class="container">
-                                <h2>Jane Doe</h2>
-                                <p class="title">CEO & Founder</p>
-                                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                                <p>jane@example.com</p>
-                                <p><button class="button">Contact</button></p>
+                                <h2>Kee Kai Yang</h2>
+                                <p class="title" style="font-size:20px">Software Engineer</p><br>
+                                <p>Jesus@hotmail.com</p><br>
+                                <p><button class="button">Contact</button></p><br>
                             </div>
                     </div>
                 </div>
 
                 <div class="column">
                     <div class="card">
-                        <img src="/static/img/xm.jpg" alt="Mike" style="width:100%">
+                        <img src="/static/img/xm.jpg" alt="xm" style="width:100%">
                             <div class="container">
-                                <h2>Mike Ross</h2>
-                                <p class="title">Art Director</p>
-                                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                                <p>mike@example.com</p>
-                                <p><button class="button">Contact</button></p>
+                                <h2>Chong XueMing</h2>
+                                <p class="title" style="font-size:20px">CEO</p><br>
+                                <p>ceo@hotmail.com</p><br>
+                                <p><button class="button">Contact</button></p><br>
                             </div>
                     </div>
                 </div>
 
                 <div class="column">
                     <div class="card">
-                        <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+                        <img src="/static/img/wm.png" alt="wm" style="width:100%">
                             <div class="container">
-                                <h2>John Doe</h2>
-                                <p class="title">Designer</p>
-                                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                                <p>john@example.com</p>
-                                <p><button class="button">Contact</button></p>
+                                <h2>Seah Wei Ming</h2>
+                                <p class="title" style="font-size:20px">Software Manager</p><br>
+                                <p>swm@hotmail.com</p><br>
+                                <p><button class="button">Contact</button></p><br>
                             </div>
                     </div>
                 </div>
